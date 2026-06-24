@@ -1,0 +1,26 @@
+# テーブル定義
+
+> バージョン: 2 | 更新日時: 2026/6/24 15:44:03
+
+| tableName | columnName | dataType | nullable | primaryKey | description |
+| --- | --- | --- | --- | --- | --- |
+| events | event_id | UUID | NO | YES | イベントID |
+| events | event_name | VARCHAR(255) | NO | NO | イベント名 |
+| events | start_time | TIMESTAMP | NO | NO | イベント開始日時 |
+| events | end_time | TIMESTAMP | NO | NO | イベント終了日時 |
+| events | access_code | VARCHAR(50) | NO | NO | アクセス用QR/URL識別コード |
+| projects | project_id | UUID | NO | YES | プロジェクトID |
+| projects | event_id | UUID | NO | NO | イベントID（外部キー） |
+| projects | project_name | VARCHAR(255) | NO | NO | プロジェクト名 |
+| projects | status | VARCHAR(20) | NO | NO | ステータス（準備中/発表中/終了） |
+| questions | question_id | UUID | NO | YES | 質問ID |
+| questions | event_id | UUID | NO | NO | イベントID |
+| questions | project_id | UUID | YES | NO | 対象プロジェクトID（任意） |
+| questions | content | TEXT | NO | NO | 質問内容 |
+| questions | answer | TEXT | YES | NO | 回答内容 |
+| questions | status | VARCHAR(20) | NO | NO | 検閲状態（未承認/承認/却下） |
+| questions | is_anonymous | BOOLEAN | NO | NO | 匿名投稿フラグ |
+| votes | vote_id | UUID | NO | YES | 投票ID |
+| votes | project_id | UUID | NO | NO | 投票先プロジェクトID |
+| votes | participant_id | VARCHAR(255) | NO | NO | 参加者識別子（セッション/デバイス指紋） |
+| votes | voted_at | TIMESTAMP | NO | NO | 投票日時 |

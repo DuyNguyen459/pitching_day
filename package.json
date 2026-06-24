@@ -1,0 +1,19 @@
+{
+  "name": "pitching-day-monorepo",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "realtime"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "prettier:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "prettier:write": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}
