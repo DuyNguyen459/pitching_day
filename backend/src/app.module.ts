@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { HealthController } from './health.controller';
 import { CreateInitialTables1719223847291 } from './migrations/create-initial-tables';
+import { EventModule } from './event/event.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { CreateInitialTables1719223847291 } from './migrations/create-initial-ta
       migrationsRun: true, // Auto-run migrations on startup
       migrations: [CreateInitialTables1719223847291],
     }),
+    EventModule,
   ],
   controllers: [HealthController],
   providers: [],
